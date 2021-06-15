@@ -1,0 +1,6 @@
+{
+	"appId": "com.example.com",
+	"appName": "2Light2Fan",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
