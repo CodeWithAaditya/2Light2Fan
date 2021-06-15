@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CommandService {
-  baseUrl = 'http://192.168.1.88';
+  public baseUrl = '';
   constructor(private http: HttpClient) { }
 
   //Fan 1
@@ -59,5 +59,17 @@ export class CommandService {
   }
   getStatus(): Observable<string> {
     return this.http.get<string>(this.baseUrl + '/status');
+  }
+
+  scanDevices(){
+    for (let index = 1; index < 255; index++) {
+      const ipUrl = 'http://192.168.1.' + index;
+      this.http.get<string>(ipUrl+'/discovery').subscribe((device: any)=>{
+        console.log('found ip', ipUrl);
+        this.baseUrl = ipUrl;
+      }, err=>{
+        console.log('error', ipUrl, err);
+      });
+    }
   }
 }
