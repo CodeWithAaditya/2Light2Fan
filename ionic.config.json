@@ -1,0 +1,7 @@
+{
+  "name": "2Light2Fan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
