@@ -1,20 +1,49 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      2Light2Fan
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item>
+      <ion-label>Fan 1
+        <ion-text color="success" [hidden]="!status?.fan1">ON</ion-text>
+        <ion-text color="danger" [hidden]="status?.fan1">OFF</ion-text>
+      </ion-label>
+      <ion-toggle slot="start" name="fan1" color="success" (ionChange)="fan1($event)" [checked]="status?.fan1"></ion-toggle>
+    </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-item>
+      <ion-label>Fan 2
+        <ion-text color="success" [hidden]="!status?.fan2">ON</ion-text>
+        <ion-text color="danger" [hidden]="status?.fan2">OFF</ion-text>
+      </ion-label>
+      <ion-toggle slot="start" name="fan2" color="success" (ionChange)="fan2($event)" [checked]="status?.fan2"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Light 1
+        <ion-text color="success" [hidden]="!status?.light1">ON</ion-text>
+        <ion-text color="danger" [hidden]="status?.light1">OFF</ion-text>
+      </ion-label>
+      <ion-toggle slot="start" name="light1" color="success" (ionChange)="light1($event)" [checked]="status?.light1"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Light 2
+        <ion-text color="success" [hidden]="!status?.light2">ON</ion-text>
+        <ion-text color="danger" [hidden]="status?.light2">OFF</ion-text>
+      </ion-label>
+      <ion-toggle slot="start" name="light2" color="success" (ionChange)="light2($event)" [checked]="status?.light2"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>All</ion-label>
+      <ion-toggle slot="start" name="all" color="success" (ionChange)="all($event)" ></ion-toggle>
+    </ion-item>
+
+  </ion-list>
 </ion-content>
